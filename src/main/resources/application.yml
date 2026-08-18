@@ -38,7 +38,7 @@ eureka:
 ordered:
   gateway:
     security:
-      jwt-secret: ${JWT_SECRET}
+      jwt-secret: ${JWT_SECRET:change-me-in-prod-min-256-bits-long-please-replace}
       public-paths:
         - /api/v1/auth/**
         - /actuator/**
