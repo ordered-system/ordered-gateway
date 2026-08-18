@@ -10,7 +10,7 @@ spring:
         webflux:
           routes:
             - id: order-service-route
-              uri: http://localhost:9090
+              uri: http://localhost:9091
               predicates:
                 - Path=/api/v1/orders/**,/api/v1/payments/**
             - id: product-service-route
