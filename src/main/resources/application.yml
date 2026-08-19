@@ -16,7 +16,7 @@ spring:
             - id: product-service-route
               uri: http://localhost:9090
               predicates:
-                - Path=/api/v1/products/**,/api/v1/reviews/**,/api/v1/history/**
+                - Path=/api/v1/products/**,/api/v1/reviews/**,/api/v1/history/**,/api/v1/cart/**,/api/v1/addresses/**
             - id: user-service-route
               uri: http://localhost:9090
               predicates:
