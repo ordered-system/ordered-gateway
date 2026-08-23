@@ -20,11 +20,11 @@ spring:
             - id: legacy-monolith-route
               uri: http://localhost:9090
               predicates:
-                - Path=/api/v1/reviews/**,/api/v1/history/**,/api/v1/addresses/**
+                - Path=/api/v1/reviews/**,/api/v1/history/**
             - id: user-service-route
-              uri: http://localhost:9090
+              uri: http://localhost:9093
               predicates:
-                - Path=/api/v1/users/**,/api/v1/auth/**
+                - Path=/api/v1/users/**,/api/v1/auth/**,/api/v1/addresses/**
           discovery:
             locator:
               enabled: true
