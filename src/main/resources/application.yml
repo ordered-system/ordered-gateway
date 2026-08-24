@@ -17,10 +17,10 @@ spring:
               uri: http://localhost:9092
               predicates:
                 - Path=/api/v1/products/**,/api/v1/cart/**
-            - id: legacy-monolith-route
-              uri: http://localhost:9090
+            - id: engagement-service-route
+              uri: http://localhost:9094
               predicates:
-                - Path=/api/v1/reviews/**,/api/v1/history/**
+                - Path=/api/v1/reviews/**,/api/v1/browsing-history/**
             - id: user-service-route
               uri: http://localhost:9093
               predicates:
@@ -48,6 +48,7 @@ ordered:
         - /actuator/**
         - /api/v1/products/**
         - /api/v1/products
+        - /api/v1/reviews/product/**
         - /swagger-ui/**
         - /v3/api-docs/**
 
