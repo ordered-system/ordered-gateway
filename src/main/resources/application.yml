@@ -5,7 +5,7 @@ spring:
   application:
     name: ordered-gateway
   config:
-    import: "configserver:${CONFIG_SERVER_URL:http://localhost:8888}"
+    import: "optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}"
   cloud:
     config:
       fail-fast: true
