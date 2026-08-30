@@ -4,7 +4,11 @@ server:
 spring:
   application:
     name: ordered-gateway
+  config:
+    import: "configserver:${CONFIG_SERVER_URL:http://localhost:8888}"
   cloud:
+    config:
+      fail-fast: true
     gateway:
       server:
         webflux:
@@ -42,7 +46,6 @@ eureka:
 ordered:
   gateway:
     security:
-      jwt-secret: ${JWT_SECRET:change-me-in-prod-min-256-bits-long-please-replace}
       public-paths:
         - /api/v1/auth/**
         - /actuator/**
