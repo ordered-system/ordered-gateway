@@ -29,6 +29,30 @@ spring:
               uri: http://localhost:9093
               predicates:
                 - Path=/api/v1/users/**,/api/v1/auth/**,/api/v1/addresses/**
+            - id: order-service-docs
+              uri: http://localhost:9091
+              predicates:
+                - Path=/order-service/v3/api-docs
+              filters:
+                - RewritePath=/order-service/v3/api-docs, /v3/api-docs
+            - id: product-service-docs
+              uri: http://localhost:9092
+              predicates:
+                - Path=/product-service/v3/api-docs
+              filters:
+                - RewritePath=/product-service/v3/api-docs, /v3/api-docs
+            - id: user-service-docs
+              uri: http://localhost:9093
+              predicates:
+                - Path=/user-service/v3/api-docs
+              filters:
+                - RewritePath=/user-service/v3/api-docs, /v3/api-docs
+            - id: engagement-service-docs
+              uri: http://localhost:9094
+              predicates:
+                - Path=/engagement-service/v3/api-docs
+              filters:
+                - RewritePath=/engagement-service/v3/api-docs, /v3/api-docs
           discovery:
             locator:
               enabled: true
@@ -53,7 +77,21 @@ ordered:
         - /api/v1/products
         - /api/v1/reviews/product/**
         - /swagger-ui/**
+        - /swagger-ui.html
         - /v3/api-docs/**
+        - /*/v3/api-docs
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: order-service
+        url: /order-service/v3/api-docs
+      - name: product-service
+        url: /product-service/v3/api-docs
+      - name: user-service
+        url: /user-service/v3/api-docs
+      - name: engagement-service
+        url: /engagement-service/v3/api-docs
 
 management:
   endpoints:
