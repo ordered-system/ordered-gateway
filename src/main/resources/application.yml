@@ -14,41 +14,41 @@ spring:
         webflux:
           routes:
             - id: order-service-route
-              uri: http://localhost:9091
+              uri: lb://order-service
               predicates:
                 - Path=/api/v1/orders/**,/api/v1/payments/**
             - id: product-service-route
-              uri: http://localhost:9092
+              uri: lb://product-service
               predicates:
                 - Path=/api/v1/products/**,/api/v1/cart/**
             - id: engagement-service-route
-              uri: http://localhost:9094
+              uri: lb://engagement-service
               predicates:
                 - Path=/api/v1/reviews/**,/api/v1/browsing-history/**
             - id: user-service-route
-              uri: http://localhost:9093
+              uri: lb://user-service
               predicates:
                 - Path=/api/v1/users/**,/api/v1/auth/**,/api/v1/addresses/**
             - id: order-service-docs
-              uri: http://localhost:9091
+              uri: lb://order-service
               predicates:
                 - Path=/order-service/v3/api-docs
               filters:
                 - RewritePath=/order-service/v3/api-docs, /v3/api-docs
             - id: product-service-docs
-              uri: http://localhost:9092
+              uri: lb://product-service
               predicates:
                 - Path=/product-service/v3/api-docs
               filters:
                 - RewritePath=/product-service/v3/api-docs, /v3/api-docs
             - id: user-service-docs
-              uri: http://localhost:9093
+              uri: lb://user-service
               predicates:
                 - Path=/user-service/v3/api-docs
               filters:
                 - RewritePath=/user-service/v3/api-docs, /v3/api-docs
             - id: engagement-service-docs
-              uri: http://localhost:9094
+              uri: lb://engagement-service
               predicates:
                 - Path=/engagement-service/v3/api-docs
               filters:
