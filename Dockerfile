@@ -6,7 +6,7 @@ COPY src ./src
 
 RUN --mount=type=cache,target=/root/.m2 \
     apk add --no-cache maven && \
-    mvn -B -q clean package -DskipTests \
+    mvn -B -q clean package -DskipTests
 
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
